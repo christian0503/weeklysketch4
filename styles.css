@@ -1,0 +1,180 @@
+/* General Styles */
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+/* Sky & Sunset */
+.sky {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: linear-gradient(to bottom, #ff9a9e, #fad0c4, #fbc2eb);
+    animation: skyColorChange 15s infinite;
+}
+
+/* Sun */
+.sun {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(circle, #ffdd44, #ff7700);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: sunAnimation 15s ease-in-out infinite; /* Smooth transition for sun */
+}
+
+/* Ocean */
+.ocean {
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    top: 50%;
+    background: #0174a7;
+    overflow: hidden;
+    z-index: 1;
+}
+
+/* Waves */
+.wave {
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    background: url('https://media.tenor.com/nWx0rD5cDD4AAAAj/ocen.gif');
+    background-size: 100% 100%;
+    opacity: 0.5;
+    animation: moveWaves 10s ease-in-out infinite;
+    z-index: 2;
+}
+
+.wave1 {
+    top: 0;
+    animation-delay: 0s;
+}
+
+.wave2 {
+    top: 10%;
+    animation-delay: 5s;
+}
+
+.wave3 {
+    top: 20%;
+    animation-delay: 3s;
+}
+
+/* Beach */
+.beach {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    bottom: 0;
+    background: linear-gradient(to top, #c2b280, #e5c100);
+}
+
+/* Birds */
+.birds {
+    position: absolute;
+    top: 10%;
+    left: -100px;  /* Start off-screen */
+    width: 100px;
+    height: 50px;
+    background: url('https://media.tenor.com/F0t8OIpa_WgAAAAi/makarios-voando.gif') no-repeat;
+    background-size: contain;
+    animation: birdsFly 10s linear infinite;
+    background-color: transparent;  /* Ensure no background color */
+}
+
+@keyframes birdsFly {
+    0% { left: -100px; top: 20%; }
+    50% { left: 50%; top: 25%; }
+    100% { left: 100%; top: 15%; }  /* Move the bird to the right */
+}
+
+/* Palm Tree */
+.palm {
+    position: absolute;
+    bottom: 10px;
+    left: 10%;
+}
+
+/* Trunk */
+.trunk {
+    position: relative;
+    width: 20px;
+    height: 100px;
+    background: #8B4513;
+    border-radius: 10px;
+    transform: rotate(-10deg);
+    animation: sway 1s ease-in-out infinite alternate;
+}
+
+/* Leaves */
+.leaves {
+    position: absolute;
+    top: -20px;
+    left: -34px;
+    width: 90px;
+    height: 90px;
+    background: green;
+    border-radius: 50%;
+    clip-path: ellipse(50% 40% at 50% 50%);
+    animation: sway 1s ease-in-out infinite alternate;
+}
+
+/* Palm Tree Sway Animation */
+@keyframes sway {
+    0% { transform: rotate(-10deg); }
+    100% { transform: rotate(10deg); }
+}
+
+/* Sunset Animation */
+@keyframes sunset {
+    0% { top: 20%; opacity: 1; }
+    50% { top: 50%; opacity: 0; }
+    100% { top: 20%; opacity: 1; }
+}
+
+/* Wave Animation */
+@keyframes moveWaves {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Animation for Sky Color Transition (Simulating the full sunset effect) */
+@keyframes skyColorChange {
+    0% { 
+        background: linear-gradient(to bottom, #ff9a9e, #fad0c4, #fbc2eb);
+    }
+    50% { 
+        background: linear-gradient(to bottom, #ff9a9e, #fbbd3c, #ff6347);  /* Change sky to sunset colors */
+    }
+    100% { 
+        background: linear-gradient(to bottom, #ff9a9e, #fbbd3c, #ff6347);  /* Keep sunset colors */
+    }
+}
+
+/* Sun Animation */
+@keyframes sunAnimation {
+    0% {
+        top: 10%; /* Start high in the sky */
+        opacity: 1;
+    }
+    40% {
+        top: 25%; /* Move down slowly */
+        opacity: 1;
+    }
+    50% {
+        top: 50%; /* Sun reaches the horizon */
+        opacity: 0; /* Disappear as it sets */
+    }
+    60% {
+        top: 50%; /* Still at the horizon */
+        opacity: 0;
+    }
+    100% {
+        top: 20%; /* Start rising again */
+        opacity: 1;
+    }
+}
